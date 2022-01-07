@@ -1,7 +1,6 @@
 package springapplicationcontext;
 
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -31,7 +30,7 @@ public class DemoApplication {
     }
 
     private static void method1(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("application-test.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("application-testtest.xml");
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
 
         System.out.println(Arrays.toString(beanDefinitionNames));
