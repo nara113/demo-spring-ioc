@@ -5,6 +5,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.support.RequestHandledEvent;
 
 @Component
 public class MyEventHandler {
@@ -35,5 +36,10 @@ public class MyEventHandler {
     @EventListener
     public void handler(ContextClosedEvent event) {
         System.out.println("closed! " + Thread.currentThread());
+    }
+
+    @EventListener
+    public void handler(RequestHandledEvent event) {
+        System.out.println("HTTP 요청 처리했을 때 발생");
     }
 }
