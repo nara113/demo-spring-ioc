@@ -4,7 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-public class validator implements Validator {
+public class EventValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {

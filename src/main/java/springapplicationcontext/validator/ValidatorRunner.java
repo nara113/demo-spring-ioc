@@ -13,6 +13,7 @@ import java.util.Arrays;
 @Component
 public class ValidatorRunner implements ApplicationRunner {
 
+    //스프링부트 2.0.5 부터 LocalValidatorFactoryBean 등록
     @Autowired
     Validator validator;
 
@@ -24,6 +25,8 @@ public class ValidatorRunner implements ApplicationRunner {
         event.setAge(-1);
         event.setEmail("a");
         Errors errors = new BeanPropertyBindingResult(event, "event");
+
+//        EventValidator validator = new EventValidator();
 
         validator.validate(event, errors);
 
