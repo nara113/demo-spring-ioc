@@ -1,6 +1,8 @@
 package springapplicationcontext;
 
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -24,9 +26,13 @@ import java.util.Arrays;
 public class DemoApplication {
 
     public  static void main(String[] args) {
-//        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(DemoApplication.class);
+//        springApplication.setWebApplicationType(WebApplicationType.NONE);
+        springApplication.run(args);
+    }
 
-        //빠르다. @Bean 으로 등록하는 것 보단 나
+    private static void method2(String[] args) {
+        //빠르다. @Bean 으로 등록하는 것 보단 나음
         new SpringApplicationBuilder()
                 .sources(DemoApplication.class)
                 .initializers((ApplicationContextInitializer<GenericApplicationContext>) applicationContext -> {
