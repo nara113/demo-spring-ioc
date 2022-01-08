@@ -12,12 +12,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.scheduling.annotation.EnableAsync;
 import out.OutService;
 import springapplicationcontext.configuration.ApplicationConfig;
 
 import java.util.Arrays;
 
 @PropertySource("classpath:/app.properties")
+@EnableAsync
 @SpringBootApplication
 public class DemoApplication {
 

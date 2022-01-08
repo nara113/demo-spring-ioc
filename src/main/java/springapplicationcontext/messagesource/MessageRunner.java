@@ -18,6 +18,9 @@ public class MessageRunner implements ApplicationRunner {
     @Autowired
     MessageSource messageSource;
 
+//    @Autowired
+//    ApplicationContext messageSource;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         while(true) {
@@ -25,6 +28,7 @@ public class MessageRunner implements ApplicationRunner {
             System.out.println(messageSource.getMessage("hello", new String[]{"spring"}, Locale.getDefault()));
 
             Thread.sleep(1000);
+            break;
         }
     }
 }
