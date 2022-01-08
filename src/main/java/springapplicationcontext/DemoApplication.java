@@ -5,14 +5,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import out.OutService;
 import springapplicationcontext.configuration.ApplicationConfig;
 
 import java.util.Arrays;
 
+@PropertySource("classpath:/app.properties")
 @SpringBootApplication
 public class DemoApplication {
 
@@ -39,6 +44,16 @@ public class DemoApplication {
         String[] beanDefinitionNames2 = context2.getBeanDefinitionNames();
 
         System.out.println(Arrays.toString(beanDefinitionNames2));
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        var m = new ReloadableResourceBundleMessageSource();
+        m.setBasename("classpath:/messages");
+        m.setDefaultEncoding("UTF-8");
+//        m.setCacheSeconds(2);
+
+        return m;
     }
 
 }
