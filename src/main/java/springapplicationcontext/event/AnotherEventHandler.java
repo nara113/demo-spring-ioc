@@ -1,4 +1,4 @@
-package springapplicationcontext.Event;
+package springapplicationcontext.event;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;

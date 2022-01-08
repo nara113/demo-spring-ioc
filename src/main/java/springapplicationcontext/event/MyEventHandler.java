@@ -1,8 +1,6 @@
-package springapplicationcontext.Event;
+package springapplicationcontext.event;
 
 import org.springframework.context.event.*;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.RequestHandledEvent;

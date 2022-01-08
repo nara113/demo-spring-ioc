@@ -21,15 +21,18 @@ public class ResourceRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws IOException {
         System.out.println("resourceLoader.getClass() : " + resourceLoader.getClass());
 
+        Resource resource = resourceLoader.getResource("http:text.txt");
+        System.out.println("resource.getClass() : " + resource.getClass()); //UrlResource
+
         //classpath 접두어로 resource 타입 강제 (ClassPathResource)
-        Resource resource = resourceLoader.getResource("classpath:text.txt");
-        System.out.println("resource.getClass() : " + resource.getClass());
-        System.out.println(resource.exists());
-        System.out.println(Files.readString(Path.of(resource.getURI())));
+        Resource resource3 = resourceLoader.getResource("classpath:text.txt");
+        System.out.println("resource3.getClass() : " + resource3.getClass()); //ClassPathResource
+        System.out.println(resource3.exists());
+        System.out.println(Files.readString(Path.of(resource3.getURI())));
 
         //Tomcat started on port(s): 8080 (http) with context path ''
         //내장 톰캣은 context path 가 지정되어 있지 않다. (리소스 찾을 수 없음)
         Resource resource2 = resourceLoader.getResource("text.txt");
-        System.out.println("resource2.getClass() : " + resource2.getClass());
+        System.out.println("resource2.getClass() : " + resource2.getClass());   //ServletContextResource
     }
 }

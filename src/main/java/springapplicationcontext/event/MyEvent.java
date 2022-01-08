@@ -1,4 +1,4 @@
-package springapplicationcontext.Event;
+package springapplicationcontext.event;
 
 public class MyEvent {
     Object source;
